@@ -6,27 +6,16 @@ void	test(unsigned int a, unsigned int b)
 	Span sp = Span(a);
 	for (unsigned int i = 0; i < a; i ++)
 		sp.addNumber(-42);
-	std::vector<int> copy = sp.getSpan();
-	for (std::vector<int>::iterator it = copy.begin(); it != copy.end(); it++)
-		std::cout << *it  << " ";
-	std::cout << std::endl;
-	
+	sp.printSpan();
 	std::cout << "short: "<< sp.shortestSpan() << std::endl; 
 	std::cout << "long : " << sp.longestSpan() << std::endl;
-	std::cout << "size : " << sp.getSize() << std::endl;
-
-	
 	std::cout << "[b]" << std::endl;
 	sp = Span(b);
 	for (unsigned int i = 0; i < b; i++)
 		sp.addNumber(42);
-	std::vector<int> copy2 = sp.getSpan();
-	for (std::vector<int>::iterator it = copy2.begin(); it != copy2.end(); it++)
-		std::cout << *it  << " ";
-	std::cout << std::endl;
+	sp.printSpan();
 	std::cout << "short: " << sp.shortestSpan() << std::endl; 
 	std::cout << "long : " << sp.longestSpan() << std::endl;
-	std::cout << "size : " << sp.getSize() << std::endl;
 }
 
 int main() 
@@ -70,6 +59,31 @@ int main()
 	{
 		std::cout << e.what() << std::endl;
 	}
+	std::cout << "=====================Add Function Test===================" << std::endl;
+	try
+	{
+		sp = Span(10);
+		sp.addNumberBunch(3);
+		sp.addNumberBunch(4);
+		sp.addNumberBunch(5);
+	}
+	catch (std::exception& e)
+	{
+		std::cout << e.what() << std::endl;
+	}
+	sp.printSpan();
+	std::cout << "======================Large Span Test====================" << std::endl;
+	sp = Span(10000);
+	sp.addNumberBunch(10000);
+	sp.printSortedSpan();
+	std::cout << sp.shortestSpan() << std::endl; 
+	std::cout << sp.longestSpan() << std::endl;
+	sp = Span(10);
+	sp.addNumberRandom(10);
+	sp.printSpan();
+	sp.printSortedSpan();
+	std::cout << sp.shortestSpan() << std::endl; 
+	std::cout << sp.longestSpan() << std::endl;
 	std::cout << "======================mem leak check=====================" << std::endl;
 	system("leaks span");
 	return 0; 

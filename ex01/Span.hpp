@@ -15,7 +15,6 @@ class	Span
 {
 	private:
 		std::vector<int>	_span;
-		unsigned int		_sizeMax;
 	
 	public:
 		Span();
@@ -26,13 +25,15 @@ class	Span
 
 		void			addNumber(int n);
 		void			addNumberBunch(unsigned int n);
+		void			addNumberRandom(unsigned int n);
 		void			addNumber(void);
 		unsigned int	shortestSpan(void);
 		unsigned int	longestSpan(void);
 
-		unsigned int	getMaxSize(void) const;
-		unsigned int	getSize(void) const;
-		const v&		getSpan(void) const;
+		void			printSpan(void);
+		void			printSortedSpan(void);
+
+		const std::vector<int>&		getSpan(void) const;
 	
 	
 };
