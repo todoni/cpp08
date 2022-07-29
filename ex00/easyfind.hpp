@@ -3,13 +3,13 @@
 
 # include <algorithm>
 # include <vector>
-# include <set>
 # include <list>
 # include <deque>
 # include <stdexcept>
 # include <iostream>
 //# include <stack>
-//# include <queue>
+//# include <queue> // container adapter
+//# include <set> // associative container
 
 template <typename T>
 typename T::iterator	easyfind(T& container, int toFind)
