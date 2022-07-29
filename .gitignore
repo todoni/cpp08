@@ -1,0 +1,6 @@
+*.o
+*.d
+*.out
+easyfind
+span
+mutantstack
